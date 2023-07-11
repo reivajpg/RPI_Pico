@@ -39,5 +39,5 @@ jobs:
       - name: Upload bin
         uses: actions/upload-artifact@v3
         with:
-            name: ${{example}}.bin
+            name: ${{matrix.example}}.bin
             path: ./out
