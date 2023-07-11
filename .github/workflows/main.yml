@@ -13,6 +13,7 @@ jobs:
         example:
           - "examples/arduino-blink"
           - "examples/arduino-external-libs"
+        type: - "arduino-blink" - "arduino-external-libs"
 
     steps:
       - uses: actions/checkout@v3
@@ -34,10 +35,10 @@ jobs:
           pio pkg install --global --platform symlink://.
       - name: Build examples
         run: |
-          pio run -d ${{ matrix.example }}
+          pio run -d ${{ matrix.example }} --board=pico
 
       - name: Upload bin
         uses: actions/upload-artifact@v3
         with:
-            name: ${{matrix.example}}.uf2
+            name: ${{matrix.type}}.uf2
             path: ${{matrix.example}}/.pio/build/pico/firmware.uf2
