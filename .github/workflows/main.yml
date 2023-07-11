@@ -39,5 +39,5 @@ jobs:
       - name: Upload bin
         uses: actions/upload-artifact@v3
         with:
-            name: ${{matrix.example}}.bin
-            path: ./out
+            name: ${{matrix.example}}.uf2
+            path: ${{matrix.example}}/.pio/build/pico/firmware.uf2
