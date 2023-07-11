@@ -36,7 +36,8 @@ jobs:
         run: |
           pio run -d ${{ matrix.example }}
 
-      - name: Copi build to examples folder
-        publish_dir: ./out
-
-
+      - name: Upload bin
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{example}}.bin
+        path: ./out
