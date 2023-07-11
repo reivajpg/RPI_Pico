@@ -35,7 +35,7 @@ jobs:
           pio pkg install --global --platform symlink://.
       - name: Build examples
         run: |
-          pio run -d ${{ matrix.example }} --t pico
+          pio run -d ${{ matrix.example }} -t pico
 
       - name: Upload bin
         uses: actions/upload-artifact@v3
