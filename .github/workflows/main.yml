@@ -37,7 +37,7 @@ jobs:
           pio run -d ${{ matrix.example }}
 
       - name: Upload bin
-      uses: actions/upload-artifact@v3
-      with:
-        name: ${{example}}.bin
-        path: ./out
+        uses: actions/upload-artifact@v3
+        with:
+            name: ${{example}}.bin
+            path: ./out
