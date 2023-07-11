@@ -37,16 +37,9 @@ jobs:
         run: |
           pio run -d ${{ matrix.example }}
 
-      - name: Upload bin
+      - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-            name: ${{matrix.var}}.uf2
+            name: ${{matrix.var}}
             path: ${{matrix.example}}/.pio/build/pico/firmware.uf2
-
-      - name: Upload artifacts
-        uses: lumo-systems/s3-upload-github-action@master
-        env:
-          FILE: .pio/build/${{ matrix.var }}/pico/firmware.uf2
-         github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
 
