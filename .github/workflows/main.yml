@@ -13,7 +13,7 @@ jobs:
         example:
           - "examples/arduino-blink"
           - "examples/arduino-external-libs"
-        type: - "arduino-blink" - "arduino-external-libs"
+        var: [arduino-blink arduino-external-libs]
 
     steps:
       - uses: actions/checkout@v3
