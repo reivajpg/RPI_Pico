@@ -1,9 +1,11 @@
-name: Examples
+name: PlatformIO CI
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   build:
+    
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
@@ -11,11 +13,17 @@ jobs:
         example:
           - "examples/arduino-blink"
           - "examples/arduino-external-libs"
-    runs-on: ${{ matrix.os }}
+
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: "recursive"
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.platformio/.cache
+          key: ${{ runner.os }}-pio
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
