@@ -30,14 +30,20 @@ jobs:
             ~/.cache/pip
             ~/.platformio/.cache
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+
+
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
           python-version: "3.9"
+
+
       - name: Install dependencies
         run: |
           pip install -U https://github.com/platformio/platformio/archive/develop.zip
           pio pkg install --global --platform symlink://.
+
+
       - name: Build examples
         run: |
           pio run -d ${{ matrix.example }}
@@ -53,6 +59,7 @@ jobs:
         with:
             name: ${{matrix.var}}
             path: out/
+            
       - name: Display structure of downloaded files
         run: ls -R
-        working-directory: ${{matrix.example}}/.pio/build/pico/firmware.uf2
+        working-directory: ${{matrix.example}}/.pio/build/pico/
