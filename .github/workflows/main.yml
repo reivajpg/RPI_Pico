@@ -52,7 +52,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
             name: ${{matrix.var}}
-            path: ${{matrix.example}}/.pio/build/pico/firmware.uf2
+            path: .pio/build/pico/firmware.uf2
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: out/
