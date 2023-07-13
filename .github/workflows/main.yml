@@ -42,9 +42,17 @@ jobs:
         run: |
           pio run -d ${{ matrix.example }}
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+#      - name: Upload artifacts
+#        uses: actions/upload-artifact@v3
+#        with:
+#            name: ${{matrix.var}}
+#            path: ${{matrix.example}}/.pio/build/pico/firmware.uf2
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
         with:
             name: ${{matrix.var}}
             path: ${{matrix.example}}/.pio/build/pico/firmware.uf2
-
+      - name: Display structure of downloaded files
+          run: ls -R
+          working-directory: out/
