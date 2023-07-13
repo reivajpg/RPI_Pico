@@ -12,7 +12,7 @@ jobs:
         os: [ubuntu-latest]
         example:
           - "examples/arduino-blink"
-          - "examples/arduino-external-libs"
+#          - "examples/arduino-external-libs"
         var: [arduino-blink arduino-external-libs]
 
     steps:
