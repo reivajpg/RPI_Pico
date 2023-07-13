@@ -55,4 +55,4 @@ jobs:
             path: out/
       - name: Display structure of downloaded files
         run: ls -R
-#        working-directory: ${{matrix.example}}/.pio/build/pico/firmware.uf2
+        working-directory: ${{matrix.example}}/.pio/build/pico/firmware.uf2
