@@ -48,11 +48,11 @@ jobs:
 #            name: ${{matrix.var}}
 #            path: ${{matrix.example}}/.pio/build/pico/firmware.uf2
 
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
+        name: Download artifacts
+      - uses: actions/download-artifact@v3
         with:
             name: ${{matrix.var}}
             path: out/
       - name: Display structure of downloaded files
         run: ls -R
-        working-directory: ${{matrix.example}}/.pio/build/pico/firmware.uf2
+#        working-directory: ${{matrix.example}}/.pio/build/pico/firmware.uf2
