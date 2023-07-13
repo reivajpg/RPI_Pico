@@ -57,9 +57,9 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
-            name: ${{matrix.var}}
-            path: out/
-            
+            name: build_out
+            path: ${{matrix.example}}/.pio/build/pico/
+
       - name: Display structure of downloaded files
         run: ls -R
-        working-directory: ${{matrix.example}}/.pio/build/pico/
+        working-directory: ~/out/
