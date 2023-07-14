@@ -49,8 +49,8 @@ jobs:
           pio run -d ${{ matrix.example }}
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
             name: firmware.${{matrix.var}}.bin
             path: ${{matrix.example}}/.pio/build/*/firmware.bin
-        run: ls -R
+
