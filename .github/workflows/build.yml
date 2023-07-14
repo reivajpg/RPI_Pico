@@ -20,9 +20,9 @@ jobs:
         with:
           submodules: "recursive"
 
-      - run: mkdir -p ${{matrix.example}}/.pio/build/pico/
+      - run: mkdir -p ~/out/
 
-      - run: echo hello > ${{matrix.example}}/.pio/build/pico/world.txt
+      - run: echo hello > ~/out/world.txt
 
       - uses: actions/cache@v3
         with:
@@ -51,6 +51,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-            name: firmware.${{matrix.var}}.bin
-            path: ${{matrix.example}}/.pio/build/*/firmware.bin
+            name: my-test
+            path: ~/out/world.txt
+            if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
 
