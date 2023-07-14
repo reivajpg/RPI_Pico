@@ -13,7 +13,7 @@ jobs:
         example:
           - "examples/arduino-blink"
 #          - "examples/arduino-external-libs"
-        var: [arduino-blink arduino-external-libs]
+        var: [arduino-blink]
 
     steps:
       - uses: actions/checkout@v3
@@ -51,5 +51,6 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-            name: firmware.${{matrix.var}}
+            name: firmware.${{matrix.var}}.bin
             path: ${{matrix.example}}/.pio/build/*/firmware.bin
+        run: ls -R
