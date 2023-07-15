@@ -1,7 +1,3 @@
 *.pyc
 .piolibdeps
 .pio
-
-
-# Force include portal SupportFiles
-!*/.pio/build/pico/*.uf2
