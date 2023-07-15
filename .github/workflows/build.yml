@@ -46,9 +46,11 @@ jobs:
 
       - name: Push Build
         run: |
+          mkdir -p out/
+          cp ${{matrix.example}}/.pio/build/pico/firmware.uf2 out/
           date > generated.txt
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add ${{matrix.example}}/.pio/build/pico/firmware.uf2
+          git add out/
           git commit -m "generated"
           git push 
