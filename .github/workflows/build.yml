@@ -54,5 +54,5 @@ jobs:
           if ! git diff --exit-code; then
             git add out/
             git commit -am "GH Action Files added $(date)"
-            git push -f origin main
+            git push 
           fi
