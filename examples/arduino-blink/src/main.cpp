@@ -8,7 +8,7 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
-    int i = 0;    i = i + 100
+    uint32_t i = 0;    i = i + 100;
   digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(i);               // wait for a second
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
