@@ -11,9 +11,9 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         example:
-          - "examples/arduino-blink"
+          - "examples/arduino-blink_rgb"
 #          - "examples/arduino-external-libs"
-        var: [arduino-blink]
+        var: [arduino-blink_rgb]
 
     steps:
       - uses: actions/checkout@v3
