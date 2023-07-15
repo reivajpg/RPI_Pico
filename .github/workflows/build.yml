@@ -51,6 +51,8 @@ jobs:
           date > generated
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add out/
-          git commit -F "generated"
-          git push 
+          if ! git diff --exit-code; then
+            git add out/
+            git commit -am "GH Action Files added $(date)"
+            git push -f origin main
+          fi
